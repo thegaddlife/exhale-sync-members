@@ -13,7 +13,6 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: exhale-sync-members  # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: './app/'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '5.0.x'              # set this to the dotnet version to use
 
 jobs:
   build-and-deploy:
@@ -28,10 +27,15 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
 
-    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+    - name: Setup DotNet (for code)
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+        dotnet-version: 5.0.x
+
+    - name: Setup DotNet (for pulumi)
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
 
     - name: 'Resolve Project Dependencies Using Dotnet'
       shell: bash
