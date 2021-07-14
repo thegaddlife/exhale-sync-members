@@ -27,12 +27,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
 
-    - name: Setup DotNet (for code)
+    - name: Setup DotNet 5
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
 
-    - name: Setup DotNet (for pulumi)
+    - name: Setup DotNet 3
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
