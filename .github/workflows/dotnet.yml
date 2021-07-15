@@ -43,6 +43,13 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
+
+    uses: azure/appservice-settings@v1
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        app-settings-json: '${{ secrets.AZURE_APP_SETTINGS }}'
+      id: settings
+
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
