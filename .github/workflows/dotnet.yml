@@ -44,7 +44,7 @@ jobs:
         dotnet build --configuration Release --output ./output
         popd
 
-      name: 'Set App Settings'
+    - name: 'Set App Settings'
       uses: azure/appservice-settings@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
