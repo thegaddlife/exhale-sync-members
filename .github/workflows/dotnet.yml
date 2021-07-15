@@ -27,12 +27,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
 
-    - name: Setup DotNet 5
+    - name: 'Setup DotNet 5'
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
 
-    - name: Setup DotNet 3
+    - name: 'Setup DotNet 3'
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
@@ -44,7 +44,8 @@ jobs:
         dotnet build --configuration Release --output ./output
         popd
 
-    uses: azure/appservice-settings@v1
+      name: 'Set App Settings'
+      uses: azure/appservice-settings@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         app-settings-json: '${{ secrets.AZURE_APP_SETTINGS }}'
