@@ -18,11 +18,11 @@ namespace ExhaleCreativity
 
         internal const string LaunchDateAbbrev = "Mar, 18";
         internal const string UnknownMemberGroup = "zzz-unknown";
-        internal const string MembersContainerName = "members-json";
-        internal const string BlobGroupedName = "exhale-members.json";
-        internal const string BlobSortedName = "exhale-members-sorted.json";
-        internal const string BlobMapName = "exhale-members-map.json";
-        internal const string BlobBadgeName = "exhale-members-badged.json";
+        internal const string MembersContainerName = "members";
+        //internal const string BlobSortedName = "sorted.json";
+        internal const string MembersJsonBlobName = "sorted.json";
+        // internal const string BlobMapName = "exhale-members-map.json";
+        // internal const string BlobBadgeName = "exhale-members-badged.json";
 
         internal const string MainSheet = "Master";
         internal const string ExemptSheet = "Exempt";

@@ -93,7 +93,7 @@ namespace ExhaleCreativity
         private async Task InitExhaleSync()
         {
             // go and grab the last JSON that we stored in a blob from prior sync
-            var existingGroups = await _exhaleBlobService.GetBlobAsListAsync<ExhaleMemberGroup>(Constants.BlobGroupedName)
+            var existingGroups = await _exhaleBlobService.GetBlobAsListAsync<ExhaleMemberGroup>(Constants.MembersJsonBlobName)
                 .ConfigureAwait(false);
             var lastSavedMembersListAsync = existingGroups.SelectMany(x => x.Members).ToList();
 
@@ -510,7 +510,7 @@ namespace ExhaleCreativity
 
             // 1) store members grouped by region
             _logger.LogInformation("Uploading grouped members json");
-            await _exhaleBlobService.UploadAsync(Constants.BlobGroupedName, orderedGroups);
+            await _exhaleBlobService.UploadAsync(Constants.MembersJsonBlobName, orderedGroups);
 
             // // 2) save members sorted alpha
             // List<ExhaleMember> membersSortedData = await SaveSortedMembersBlob(membersData);

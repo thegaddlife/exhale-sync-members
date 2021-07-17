@@ -11,7 +11,7 @@ namespace ExhaleCreativity
 
         public string StripeApiKey { get; set; }
 
-        public string AzureWebJobsStorage { get; set; }
+        public string AzureStorageConnectionString { get; set; }
 
         public string AlgoliaAppId { get; set; }
 

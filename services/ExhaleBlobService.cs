@@ -17,7 +17,7 @@ namespace ExhaleCreativity
 
         public ExhaleBlobService(ILogger<ExhaleBlobService> logger, IOptions<ExhaleOptions> options)
         {
-            BlobServiceClient blobServiceClient = new(options.Value.AzureWebJobsStorage);
+            BlobServiceClient blobServiceClient = new(options.Value.AzureStorageConnectionString);
             _containerClient = blobServiceClient.GetBlobContainerClient(Constants.MembersContainerName);
             _logger = logger;
         }
